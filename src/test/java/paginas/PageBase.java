@@ -2,6 +2,9 @@ package paginas;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import static org.junit.Assert.*;
+
 
 public class PageBase {
 
@@ -23,6 +26,12 @@ public class PageBase {
 
     public PageBase findByXPathClick(String xpathClick) {
         navegador.findElement(By.xpath(xpathClick)).click();
+        return this;
+    }
+
+    public PageBase toastValidation(String mensagem){
+        String capturedMessage = navegador.findElement(By.className("toast-message")).getText();
+        assertEquals(mensagem, capturedMessage);
         return this;
     }
 

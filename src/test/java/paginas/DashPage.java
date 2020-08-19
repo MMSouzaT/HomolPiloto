@@ -39,16 +39,6 @@ public class DashPage extends PageBase {
         navegador.findElement(By.linkText("TIPOS DE INDISPONIBILIDADE")).click();
         return new UnavailabilityTypes(navegador);
     }
-    public ForwardingTypes lateralMenuForwardingTypes(){
-        navegador.findElement(By.className("icon-open")).click();
-        navegador.findElement(By.linkText("TIPOS DE ENCAMINHAMENTO")).click();
-        return new ForwardingTypes(navegador);
-    }
-    public HealthUnits lateralMenuHealthUnits(){
-        navegador.findElement(By.className("icon-open")).click();
-        navegador.findElement(By.linkText("UNIDADES DE SAÚDE")).click();
-        return new HealthUnits(navegador);
-    }
     public Notifications lateralMenuNotifications(){
         navegador.findElement(By.className("icon-open")).click();
         navegador.findElement(By.linkText("NOTIFICAÇÕES")).click();

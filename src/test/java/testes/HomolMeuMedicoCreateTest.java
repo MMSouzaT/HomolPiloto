@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import paginas.LoginPage;
 import suporte.Web;
 
-public class ClinipamCreateTest {
+public class HomolMeuMedicoCreateTest {
     private WebDriver navegador;
 
     @Before
@@ -23,7 +23,7 @@ public class ClinipamCreateTest {
                 .lateralMenuAdmGroups()
                 .groupCreate()
                 .fillAdmGroups()
-                .saveGroup();
+                .saveGroup().successMessageAG();
     }
 
 
@@ -42,7 +42,8 @@ public class ClinipamCreateTest {
     public void validationCreate() {
         new LoginPage(navegador)
                 .makeAllAboutLogin().lateralMenuAccessValidation()
-                .newValidation().fillAllValidationCreat().saveValidation();
+                .newValidation().fillAllValidationCreat()
+                .saveValidation().sucessfulMessageAV();
 
     }
 
@@ -50,8 +51,8 @@ public class ClinipamCreateTest {
     public void notificationCreate() {
         new LoginPage(navegador)
                 .makeAllAboutLogin().lateralMenuNotifications()
-                .newNotification().fillAllinNotification("notificaçao tela","19082020", "0905")
-                .addUsers().addUserClinipam();
+                .newNotification().fillAllinNotification("01 - SWD","31082020", "1315")
+                .goToAddUsers().addUser().successMessageN();
 
     }
 
@@ -60,7 +61,7 @@ public class ClinipamCreateTest {
         new LoginPage(navegador)
                 .makeAllAboutLogin().lateralMenuResultTypes()
                 .newResult().fillAllInResult()
-                .saveResultCreat();
+                .saveResultCreat().successMessageRT();
     }
 
     @Test
@@ -68,7 +69,15 @@ public class ClinipamCreateTest {
         new LoginPage(navegador)
                 .makeAllAboutLogin().lateralMenuCareTypes()
                 .newCareType().fillCareType()
-                .saveCareTypeCreate();
+                .saveCareTypeCreate().successMessageCT();
+    }
+
+    @Test
+    public void unavailabilityTypesCreate(){
+        new LoginPage(navegador)
+                .makeAllAboutLogin().lateralMenuUnavailabilityTypes()
+                .newUnavailableType().fillUnavailabilityType()
+                .saveUnavailableType().sucessMessageUT();
     }
 
     @After

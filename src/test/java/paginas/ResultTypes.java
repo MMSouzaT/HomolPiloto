@@ -16,13 +16,13 @@ public class ResultTypes extends PageBase {
     }
 
     public ResultTypes selectSegment(String segment) {
-        WebElement campoType = navegador.findElement(By.id("segment"));
+        WebElement campoType = navegador.findElement(By.xpath("//select[@ng-model='formEdit.segment']"));
         new Select(campoType).selectByVisibleText(segment);
         return this;
     }
 
     public ResultTypes fillName(String name) {
-        navegador.findElement(By.id("name")).sendKeys(name);
+        navegador.findElement(By.xpath("//input[@ng-model='formEdit.name']")).sendKeys(name);
         return this;
     }
 
@@ -55,4 +55,15 @@ public class ResultTypes extends PageBase {
         selectSegment("Médico");
         return this;
     }
+    public ResultTypes successMessageRT( ){
+        toastValidation("Resultado cadastrado com sucesso");
+        return this;
+    }
+    public ResultTypes successMessageEditRT( ){
+        toastValidation("Edição realizada com sucesso");
+        return this;
+    }
+
+
+
 }

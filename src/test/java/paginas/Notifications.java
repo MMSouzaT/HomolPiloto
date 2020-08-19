@@ -15,7 +15,7 @@ public class Notifications extends PageBase {
         return this;
     }
 
-    public Notifications addUsers() {
+    public Notifications goToAddUsers() {
         findByXPathClick("//button[@ng-click='salvarNotificacao()']");
         return this;
     }
@@ -62,20 +62,20 @@ public class Notifications extends PageBase {
     }
 
     public Notifications findUserByResgistration() {
-        navegador.findElement(By.id("filtroMatricula")).sendKeys("168205817");
+        navegador.findElement(By.id("filtroMatricula")).sendKeys("71992773014");
         return this;
     }
 
     public Notifications findUserByName() {
-        navegador.findElement(By.id("filtroNome")).sendKeys("JOSEFA");
+        navegador.findElement(By.id("filtroNome")).sendKeys("Marcio");
         return this;
     }
-
-    public Notifications selectState() {
-        WebElement campoType = navegador.findElement(By.id("filtroEstado"));
-        new Select(campoType).selectByVisibleText("BA");
-        return this;
-    }
+    //Não consegui cadastrar a cidade em meu usuário.
+//    public Notifications selectState() {
+//        WebElement campoType = navegador.findElement(By.id("filtroEstado"));
+//        new Select(campoType).selectByVisibleText("BA");
+//        return this;
+//    }
 
     public Notifications findUsers() {
         findByXPathClick("//button[@ng-click='filterListUsers(1)']");
@@ -83,22 +83,16 @@ public class Notifications extends PageBase {
     }
 
     public Notifications addFoundUsers() {
-        findByIdClick("ckb-80d06c4b-01a3-4a08-b1dd-b8403cb3291e");
+        findByXPathClick("//input[@ng-change='addUser(item)']");
         findByXPathClick("//button[@ng-click='saveNotificationUsers()']");
         return this;
     }
 
-    public Notifications addUserClinipam() {
+    public Notifications addUser() {
         findUserByResgistration();
         findUserByName();
-        selectState();
         findUsers();
         addFoundUsers();
-        return this;
-    }
-
-    public Notifications addUserHomolMeuMedico() {
-
         return this;
     }
 
@@ -113,5 +107,8 @@ public class Notifications extends PageBase {
         return this;
     }
 
-
+    public Notifications successMessageN( ){
+        toastValidation("Cadastro realizado com sucesso");
+        return this;
+    }
 }

@@ -9,11 +9,11 @@ public class AdministrativeGroups extends PageBase {
     }
 
     public AdministrativeGroups typeGroupName(String name){
-        navegador.findElement(By.id("nomeGrupo")).sendKeys(name);
+        navegador.findElement(By.xpath("//input[@ng-model='form.name']")).sendKeys(name);
         return this;
     }
     public AdministrativeGroups typeGroupDescribe(String description){
-        navegador.findElement(By.id("descricaoGrupo")).sendKeys(description);
+        navegador.findElement(By.xpath("//input[@ng-model='form.description']")).sendKeys(description);
         return this;
     }
 
@@ -45,6 +45,14 @@ public class AdministrativeGroups extends PageBase {
         return this;
     }
 
+    public AdministrativeGroups successMessageAG( ){
+        toastValidation("Grupo criado com sucesso.");
+        return this;
+    }
 
+    public AdministrativeGroups successMessageEditAG( ){
+        toastValidation("Grupo editado com sucesso.");
+        return this;
+    }
 
 }

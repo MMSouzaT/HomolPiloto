@@ -54,4 +54,12 @@ public class CareTypes extends PageBase{
         return this;
     }
 
+    public CareTypes successMessageEditCT( ){
+        toastValidation("Edição realizada com sucesso");
+        return this;
+    }
+    public CareTypes successMessageCT( ){
+        toastValidation("Tipo de atendimento cadastrado com sucesso.");
+        return this;
+    }
 }

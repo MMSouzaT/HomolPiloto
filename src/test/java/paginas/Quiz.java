@@ -40,11 +40,6 @@ public class Quiz extends PageBase {
         return this;
     }
 
-    public Quiz questionType(String qstT) {
-        WebElement campoType = navegador.findElement(By.id("questionType"));
-        new Select(campoType).selectByVisibleText(qstT);
-        return this;
-    }
 
     public Quiz typeInitialDate(String dateI) {
         navegador.findElement(By.id("exhibition_start")).sendKeys(dateI);
@@ -63,6 +58,22 @@ public class Quiz extends PageBase {
 
     public Quiz typeFinalMessage(String msgF) {
         navegador.findElement(By.id("finalMessage")).sendKeys(msgF);
+        return this;
+    }
+
+    public Quiz activateQuiz() {
+        findByIdClick("activeQuiz");
+        return this;
+    }
+
+    public Quiz newQuestion() {
+        findByXPathClick("//button[@data-target='.modal-perguntas']");
+        return this;
+    }
+
+    public Quiz questionType(String qstT) {
+        WebElement campoType = navegador.findElement(By.id("questionType"));
+        new Select(campoType).selectByVisibleText(qstT);
         return this;
     }
 
@@ -86,13 +97,13 @@ public class Quiz extends PageBase {
         return this;
     }
 
-    public Quiz deleteQuestion(){
+    public Quiz deleteQuestion() {
         findByXPathClick("//a[@ng-click='deletarPergunta($index, pergunta.id)']");
         findByXPathClick("//button[@class='btn btn-info btn-sim']");
         return this;
     }
 
-    public Quiz cleanAllAboutQuiz(){
+    public Quiz cleanAllAboutQuiz() {
         typeTitle("");
         typeDescription("");
         selectSession("Selecionar");
@@ -105,6 +116,7 @@ public class Quiz extends PageBase {
         deleteQuestion();
         return this;
     }
+
     public Quiz firstQuadrant() {
         typeTitle("01 - SWD");
         typeDescription("Description by SWD");
@@ -126,27 +138,11 @@ public class Quiz extends PageBase {
         return this;
     }
 
-    public Quiz activateQuiz() {
-        findByIdClick("activeQuiz");
-        return this;
-    }
 
-    public Quiz newQuestion() {
-        findByXPathClick("//button[@data-target='.modal-perguntas']");
-        return this;
-    }
     public Quiz newQuiz() {
         findByLinkTextClick("QUESTIONÁRIO");
         return this;
     }
-
-    public Quiz editQuiz(){
-        navegador.findElement(By.xpath("//input[@ng-model='questionario.title']")).sendKeys("01 - SWD");
-        findByLinkTextClick("PESQUISAR");
-        findByXPathClick("//a[@title='Editar']");
-        return this;
-    }
-
 
 
     public Quiz subjetiveQuestion() {
@@ -170,8 +166,21 @@ public class Quiz extends PageBase {
         return this;
     }
 
+    public Quiz editQuiz() {
+        navegador.findElement(By.xpath("//input[@ng-model='questionario.title']")).sendKeys("01 - SWD");
+        findByLinkTextClick("PESQUISAR");
+        findByXPathClick("//a[@title='Editar']");
+        return this;
+    }
+
     public Quiz saveQuiz() {
         findByXPathClick("//button[@ng-click='editarQuestionario()']");
         return this;
     }
+
+    public Quiz successMessageQ( ){
+        toastValidation("Alteração realizada com sucesso");
+        return this;
+    }
+
 }

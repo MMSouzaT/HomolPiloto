@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import paginas.LoginPage;
 import suporte.Web;
 
-public class ClinipamEditTest {
+public class HomolMeuMedicoEditTest {
     private WebDriver navegador;
 
     @Before
@@ -24,7 +24,8 @@ public class ClinipamEditTest {
                 .editGroup()
                 .cleanAllAboutAG()
                 .fillAdmGroups()
-                .saveGroup();
+                .saveGroup()
+                .successMessageEditAG();
     }
 
     @Test
@@ -45,7 +46,8 @@ public class ClinipamEditTest {
         new LoginPage(navegador)
                 .makeAllAboutLogin().lateralMenuAccessValidation()
                 .editValidation().cleanValidation()
-                .fillAllValidationEdit().saveValidation();
+                .fillAllValidationEdit().saveValidation()
+                .sucessfulMessageAV();
 
     }
 
@@ -55,17 +57,21 @@ public class ClinipamEditTest {
                 .makeAllAboutLogin().lateralMenuResultTypes()
                 .editResult().cleanResult()
                 .fillAllInResult()
-                .saveResultEdit();
+                .saveResultEdit().successMessageEditRT();
     }
 
     @Test
-    public void careTypesCreate() {
+    public void careTypesEdit() {
         new LoginPage(navegador)
                 .makeAllAboutLogin().lateralMenuCareTypes()
                 .editCareType().cleanAll()
-                .fillCareType().saveCareTypeEdit();
+                .fillCareType().saveCareTypeEdit().successMessageEditCT();
     }
 
+    @Test
+    public void unavailabilityTypesEdit(){
+        //não tem como implementar
+    }
     @After
     public void tearDown() {
         navegador.quit();

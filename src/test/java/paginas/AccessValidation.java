@@ -21,23 +21,23 @@ public class AccessValidation extends PageBase {
     }
 
     public AccessValidation typeName(String name) {
-        navegador.findElement(By.id("formNome")).sendKeys(name);
+        navegador.findElement(By.xpath("//input[@ng-model='form.nome']")).sendKeys(name);
         return this;
     }
 
     public AccessValidation typeIdentifier(String identifier) {
-        navegador.findElement(By.id("formIndentificador")).sendKeys(identifier);
+        navegador.findElement(By.xpath("//input[@ng-model='form.identificador']")).sendKeys(identifier);
         return this;
 
     }
 
     public AccessValidation typePassword(String password) {
-        navegador.findElement(By.id("formSenha")).sendKeys(password);
+        navegador.findElement(By.xpath("//input[@ng-model='form.senha']")).sendKeys(password);
         return this;
     }
 
     public AccessValidation selectSegment(String segment) {
-        WebElement campoType = navegador.findElement(By.id("formPerfil"));
+        WebElement campoType = navegador.findElement(By.xpath("//select[@ng-model='form.perfil.id']"));
         new Select(campoType).selectByVisibleText(segment);
         return this;
     }
@@ -71,4 +71,8 @@ public class AccessValidation extends PageBase {
         return this;
     }
 
+    public AccessValidation sucessfulMessageAV( ){
+        toastValidation("Validação registrada com sucesso");
+        return this;
+    }
 }

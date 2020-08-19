@@ -9,7 +9,7 @@ public class LoginPage extends PageBase {
     }
 
     public LoginPage typeLogin(String login){
-        navegador.findElement(By.id("matricula")).sendKeys(login);
+        navegador.findElement(By.id("matriculaSms")).sendKeys(login);
         return this;
     }
     public LoginPage typePassword(String password){
@@ -23,8 +23,8 @@ public class LoginPage extends PageBase {
     }
 
     public DashPage makeAllAboutLogin(){
-        typeLogin("MMEDICO");
-        typePassword("123456");
+        typeLogin("00888888888");
+        typePassword("3322");
         clickSignIn();
         return new DashPage(navegador);
     }
