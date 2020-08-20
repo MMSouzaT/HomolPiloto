@@ -70,7 +70,11 @@ public class HomolMeuMedicoEditTest {
 
     @Test
     public void unavailabilityTypesEdit(){
-        //não tem como implementar
+        new LoginPage(navegador)
+                .makeAllAboutLogin().lateralMenuUnavailabilityTypes()
+                .editUT().cleanAll()
+                .fillUnavailabilityType()
+                .saveUnavailableType().sucessMessageUT();
     }
     @After
     public void tearDown() {

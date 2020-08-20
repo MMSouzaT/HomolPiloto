@@ -51,7 +51,7 @@ public class HomolMeuMedicoCreateTest {
     public void notificationCreate() {
         new LoginPage(navegador)
                 .makeAllAboutLogin().lateralMenuNotifications()
-                .newNotification().fillAllinNotification("01 - SWD","31082020", "1315")
+                .newNotification().fillAllinNotification("fechado","20082020", "1425")
                 .goToAddUsers().addUser().successMessageN();
 
     }
@@ -82,6 +82,6 @@ public class HomolMeuMedicoCreateTest {
 
     @After
     public void tearDown() {
-        navegador.quit();
+        //navegador.quit();
     }
 }

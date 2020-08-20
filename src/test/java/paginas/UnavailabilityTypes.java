@@ -40,8 +40,8 @@ public class UnavailabilityTypes extends PageBase{
     }
 
     public UnavailabilityTypes editUT(){
-        //ainda não tem como ser feito da melhor forma possível porque não tem filtro
-        WebElement pegandoLinha = navegador.findElement(By.xpath("//tr/td[@class='ng-binding']"));
+        WebElement pegandoLinha = navegador.findElement(By.xpath("//tr//td[contains(text(), '01 - SWD')]"));
+        pegandoLinha.findElement(By.xpath("//a[@title='Editar']")).click();
         return this;
     }
 

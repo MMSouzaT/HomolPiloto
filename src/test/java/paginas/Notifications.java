@@ -62,12 +62,18 @@ public class Notifications extends PageBase {
     }
 
     public Notifications findUserByResgistration() {
-        navegador.findElement(By.id("filtroMatricula")).sendKeys("71992773014");
+        navegador.findElement(By.id("filtroMatricula")).sendKeys("00994968827");
         return this;
     }
 
     public Notifications findUserByName() {
-        navegador.findElement(By.id("filtroNome")).sendKeys("Marcio");
+        navegador.findElement(By.id("filtroNome")).sendKeys("Breno Nelson");
+        return this;
+    }
+
+    public Notifications selectProfile() {
+        WebElement campoType = navegador.findElement(By.id("filtroPerfil"));
+        new Select(campoType).selectByVisibleText("Selecionar");
         return this;
     }
     //Não consegui cadastrar a cidade em meu usuário.
@@ -91,6 +97,7 @@ public class Notifications extends PageBase {
     public Notifications addUser() {
         findUserByResgistration();
         findUserByName();
+        selectProfile();
         findUsers();
         addFoundUsers();
         return this;
