@@ -1,0 +1,13 @@
+paginas\CareTypes.class
+paginas\Quiz.class
+paginas\DashPage.class
+paginas\UnavailabilityTypes.class
+paginas\AdministrativeGroups.class
+paginas\LoginPage.class
+paginas\Notifications.class
+paginas\PageBase.class
+testes\HomolMeuMedicoEditTest.class
+testes\HomolMeuMedicoCreateTest.class
+paginas\AccessValidation.class
+paginas\ResultTypes.class
+suporte\Web.class

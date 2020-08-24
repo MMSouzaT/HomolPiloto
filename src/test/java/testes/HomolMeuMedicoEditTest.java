@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import paginas.DashPage;
 import paginas.LoginPage;
 import suporte.Web;
 
@@ -13,13 +14,12 @@ public class HomolMeuMedicoEditTest {
     @Before
     public void setUp() {
         navegador = Web.createChrome();
-
+        new LoginPage(navegador).makeAllAboutLogin();
     }
 
     @Test
     public void groupEdit() {
-        new LoginPage(navegador)
-                .makeAllAboutLogin()
+        new DashPage(navegador)
                 .lateralMenuAdmGroups()
                 .editGroup()
                 .cleanAllAboutAG()
@@ -30,8 +30,7 @@ public class HomolMeuMedicoEditTest {
 
     @Test
     public void QuizEdit() {
-        new LoginPage(navegador)
-                .makeAllAboutLogin().lateralMenuQuiz()
+        new DashPage(navegador).lateralMenuQuiz()
                 .editQuiz().cleanAllAboutQuiz()
                 .firstQuadrant().secondQuadrant()
                 .thirdQuadrant().newQuestion()
@@ -43,8 +42,7 @@ public class HomolMeuMedicoEditTest {
 
     @Test
     public void validationEdit() {
-        new LoginPage(navegador)
-                .makeAllAboutLogin().lateralMenuAccessValidation()
+        new DashPage(navegador).lateralMenuAccessValidation()
                 .editValidation().cleanValidation()
                 .fillAllValidationEdit().saveValidation()
                 .sucessfulMessageAV();
@@ -53,8 +51,7 @@ public class HomolMeuMedicoEditTest {
 
     @Test
     public void resultTypesEdit() {
-        new LoginPage(navegador)
-                .makeAllAboutLogin().lateralMenuResultTypes()
+        new DashPage(navegador).lateralMenuResultTypes()
                 .editResult().cleanResult()
                 .fillAllInResult()
                 .saveResultEdit().successMessageEditRT();
@@ -62,16 +59,14 @@ public class HomolMeuMedicoEditTest {
 
     @Test
     public void careTypesEdit() {
-        new LoginPage(navegador)
-                .makeAllAboutLogin().lateralMenuCareTypes()
+        new DashPage(navegador).lateralMenuCareTypes()
                 .editCareType().cleanAll()
                 .fillCareType().saveCareTypeEdit().successMessageEditCT();
     }
 
     @Test
     public void unavailabilityTypesEdit(){
-        new LoginPage(navegador)
-                .makeAllAboutLogin().lateralMenuUnavailabilityTypes()
+        new DashPage(navegador).lateralMenuUnavailabilityTypes()
                 .editUT().cleanAll()
                 .fillUnavailabilityType()
                 .saveUnavailableType().sucessMessageUT();

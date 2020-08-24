@@ -10,38 +10,38 @@ public class DashPage extends PageBase {
 
     public AdministrativeGroups lateralMenuAdmGroups(){
         navegador.findElement(By.className("icon-open")).click();
-        navegador.findElement(By.linkText("GRUPOS ADMINISTRATIVOS")).click();
+        findByXPathClick("//a[@ng-click='grupos()']");
         return new AdministrativeGroups(navegador);
     }
 
     public Quiz lateralMenuQuiz(){
         navegador.findElement(By.className("icon-open")).click();
-        navegador.findElement(By.linkText("QUESTIONÁRIOS")).click();
+        findByXPathClick("//a[@ng-click='questionarios()']");
         return new Quiz(navegador);
     }
     public AccessValidation lateralMenuAccessValidation(){
         navegador.findElement(By.className("icon-open")).click();
-        navegador.findElement(By.linkText("VALIDAÇÃO DE ACESSO")).click();
+        findByXPathClick("//a[@ng-click='validarProfissionais()']");
         return new AccessValidation(navegador);
     }
     public ResultTypes lateralMenuResultTypes(){
         navegador.findElement(By.className("icon-open")).click();
-        navegador.findElement(By.linkText("TIPOS DE RESULTADO")).click();
+        findByXPathClick("//a[@ng-click='resultados()']");
         return new ResultTypes(navegador);
     }
     public CareTypes lateralMenuCareTypes(){
         navegador.findElement(By.className("icon-open")).click();
-        navegador.findElement(By.linkText("TIPOS DE ATENDIMENTO")).click();
+        findByXPathClick("//a[@ng-click='tipoAtendimentos()']");
         return new CareTypes(navegador);
     }
     public UnavailabilityTypes lateralMenuUnavailabilityTypes(){
         navegador.findElement(By.className("icon-open")).click();
-        navegador.findElement(By.linkText("TIPOS DE INDISPONIBILIDADE")).click();
+        findByXPathClick("//a[@ng-click='tipoIndisponibilidade()']");
         return new UnavailabilityTypes(navegador);
     }
     public Notifications lateralMenuNotifications(){
         navegador.findElement(By.className("icon-open")).click();
-        navegador.findElement(By.linkText("NOTIFICAÇÕES")).click();
+        findByXPathClick("//a[@ng-click='notificacoes()']");
         return new Notifications(navegador);
     }
 
