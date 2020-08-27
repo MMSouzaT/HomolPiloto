@@ -13,6 +13,7 @@ public class HomolMeuMedicoCreateTest {
 
     @Before
     public void setUp() {
+       // driver = webdriver.PhantonJS();
         navegador = Web.createChrome();
         new LoginPage(navegador).makeAllAboutLogin();
 
@@ -49,7 +50,7 @@ public class HomolMeuMedicoCreateTest {
     @Test
     public void notificationCreate() {
         new DashPage(navegador).lateralMenuNotifications()
-                .newNotification().fillAllinNotification("teste de travamento","24082020", "2359")
+                .newNotification().fillAllinNotification("01 - SWD","27082025", "2359'")
                 .goToAddUsers().addUser().successMessageN();
 
     }
