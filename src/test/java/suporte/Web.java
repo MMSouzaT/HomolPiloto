@@ -8,8 +8,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Web {
     public static WebDriver createChrome(){
+
         ChromeOptions options = new ChromeOptions();
-        options.setHeadless(true);
+        options.setHeadless(false);
+
         System.setProperty("webdriver.chrome.driver", "C:\\qafullstack\\chromedriver.exe");
         WebDriver navegador = new ChromeDriver(options);
         navegador.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);

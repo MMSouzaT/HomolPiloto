@@ -4,8 +4,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import paginas.AdministrativeGroups;
 import paginas.DashPage;
 import paginas.LoginPage;
+import paginas.Quiz;
 import suporte.Web;
 
 public class HomolMeuMedicoCreateTest {
@@ -13,31 +15,27 @@ public class HomolMeuMedicoCreateTest {
 
     @Before
     public void setUp() {
-       // driver = webdriver.PhantonJS();
         navegador = Web.createChrome();
         new LoginPage(navegador).makeAllAboutLogin();
 
     }
 
     @Test
-    public void groupCreate() {
-        new DashPage(navegador)
-                .lateralMenuAdmGroups()
-                .groupCreate()
-                .fillAdmGroups()
-                .saveGroup().successMessageAG();
-    }
-
-
-    @Test
     public void quizCreate() {
-        new DashPage(navegador).lateralMenuQuiz()
+        new Quiz(navegador)
                 .newQuiz().firstQuadrant()
                 .secondQuadrant().thirdQuadrant()
                 .newQuestion().subjetiveQuestion().saveQuiz()
                 .deleteQuestion().newQuestion()
                 .objetiveQuestion().activateQuiz().saveQuiz();
     }
+
+    @Test
+    public void admGroupCreate() {
+        new AdministrativeGroups(navegador).groupCreate()
+                .writeEverything().saveGroup().successMessage();
+    }
+
 
     @Test
     public void validationCreate() {
@@ -50,7 +48,7 @@ public class HomolMeuMedicoCreateTest {
     @Test
     public void notificationCreate() {
         new DashPage(navegador).lateralMenuNotifications()
-                .newNotification().fillAllinNotification("01 - SWD","27082025", "2359'")
+                .newNotification().fillAllinNotification("Melhorando o código da automação", "31082020", "1426'")
                 .goToAddUsers().addUser().successMessageN();
 
     }
@@ -70,10 +68,17 @@ public class HomolMeuMedicoCreateTest {
     }
 
     @Test
-    public void unavailabilityTypesCreate(){
+    public void unavailabilityTypesCreate() {
         new DashPage(navegador).lateralMenuUnavailabilityTypes()
                 .newUnavailableType().fillUnavailabilityType()
                 .saveUnavailableType().sucessMessageUT();
+    }
+
+    @Test
+    public void PrioritiesCreate() {
+        new DashPage(navegador).lateralPriorities()
+                .newPriority().makeAll()
+                .savePriority();
     }
 
     @After

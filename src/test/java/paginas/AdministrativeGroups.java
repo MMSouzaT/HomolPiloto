@@ -8,51 +8,47 @@ public class AdministrativeGroups extends PageBase {
         super(navegador);
     }
 
-    public AdministrativeGroups typeGroupName(String name){
-        navegador.findElement(By.xpath("//input[@ng-model='form.name']")).sendKeys(name);
-        return this;
+    public void openTypeFilter() {
+        openLateralMenu("//a[@ng-click='grupos()']");
+        type("//input[@id='IdGrupoNome']", "01 - SWD");
+        clickButton("//a[@ng-click='filter(1)']");
     }
-    public AdministrativeGroups typeGroupDescribe(String description){
-        navegador.findElement(By.xpath("//input[@ng-model='form.description']")).sendKeys(description);
+
+    public AdministrativeGroups editGroup() {
+        openTypeFilter();
+        clickButton("//a[@title='Editar']");
         return this;
     }
 
-    public AdministrativeGroups cleanAllAboutAG(){
-        typeGroupName("");
-        typeGroupDescribe("");
+    public AdministrativeGroups groupCreate() {
+        openLateralMenu("//a[@ng-click='grupos()']");
+        clickButton("//a[@ng-click='CriarGrupo()']");
         return this;
     }
 
-    public AdministrativeGroups editGroup(){
-        navegador.findElement(By.id("IdGrupoNome")).sendKeys("01 - SWD");
-        findByLinkTextClick("FILTRAR");
-        findByXPathClick("//a[@title='Editar']");
-        return this;
-    }
-    public AdministrativeGroups groupCreate(){
-        findByLinkTextClick("CADASTRO");
+    public AdministrativeGroups deleteGroup() {
+        openTypeFilter();
+        clickButton("//a[@title='Excluir']");
+        clickButton("//a[@ng-click='DeletarGrupo()']");
         return this;
     }
 
-    public AdministrativeGroups saveGroup(){
-        findByLinkTextClick("SALVAR");
+    public AdministrativeGroups saveGroup() {
+        clickButton("//a[@ng-click='SalvarGrupo()']");
         return this;
     }
 
-    public AdministrativeGroups fillAdmGroups(){
-        typeGroupName("01 SWD");
-        typeGroupDescribe("Description created by SWD");
+    public AdministrativeGroups writeEverything() {
+        type("//input[@ng-model='form.name']", "01 - SWD");
+        type("//input[@ng-model='form.description']", "Description created by SWD");
         return this;
     }
 
-    public AdministrativeGroups successMessageAG( ){
+    public void successMessage() {
         toastValidation("Grupo criado com sucesso.");
-        return this;
     }
 
-    public AdministrativeGroups successMessageEditAG( ){
+    public void successMessageEdit() {
         toastValidation("Grupo editado com sucesso.");
-        return this;
     }
-
 }

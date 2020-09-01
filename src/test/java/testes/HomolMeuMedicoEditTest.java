@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import paginas.AdministrativeGroups;
 import paginas.DashPage;
 import paginas.LoginPage;
 import suporte.Web;
@@ -18,26 +19,22 @@ public class HomolMeuMedicoEditTest {
     }
 
     @Test
-    public void groupEdit() {
-        new DashPage(navegador)
-                .lateralMenuAdmGroups()
-                .editGroup()
-                .cleanAllAboutAG()
-                .fillAdmGroups()
-                .saveGroup()
-                .successMessageEditAG();
-    }
-
-    @Test
-    public void QuizEdit() {
+    public void quizEdit() {
         new DashPage(navegador).lateralMenuQuiz()
-                .editQuiz().cleanAllAboutQuiz()
+                .editQuiz()
                 .firstQuadrant().secondQuadrant()
                 .thirdQuadrant().newQuestion()
                 .subjetiveQuestion().saveQuiz()
                 .deleteQuestion()
                 .newQuestion().objetiveQuestion()
                 .activateQuiz().saveQuiz();
+    }
+
+    @Test
+    public void admGroupEdit() {
+        new AdministrativeGroups(navegador).editGroup()
+                .writeEverything().saveGroup().successMessageEdit();
+
     }
 
     @Test
@@ -65,14 +62,22 @@ public class HomolMeuMedicoEditTest {
     }
 
     @Test
-    public void unavailabilityTypesEdit(){
+    public void unavailabilityTypesEdit() {
         new DashPage(navegador).lateralMenuUnavailabilityTypes()
                 .editUT().cleanAll()
                 .fillUnavailabilityType()
                 .saveUnavailableType().sucessMessageUT();
     }
+
+    @Test
+    public void PrioritiesEdit() {
+        new DashPage(navegador).lateralPriorities()
+                .editPrior().cleanALl()
+                .makeAll().savePriority().delete();
+    }
+
     @After
     public void tearDown() {
-        navegador.quit();
+        //navegador.quit();
     }
 }

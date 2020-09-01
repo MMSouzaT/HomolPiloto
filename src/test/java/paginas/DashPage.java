@@ -8,41 +8,57 @@ public class DashPage extends PageBase {
         super(navegador);
     }
 
-    public AdministrativeGroups lateralMenuAdmGroups(){
+    public void openLateralMenu(){
         navegador.findElement(By.className("icon-open")).click();
-        findByXPathClick("//a[@ng-click='grupos()']");
-        return new AdministrativeGroups(navegador);
+
     }
 
     public Quiz lateralMenuQuiz(){
-        navegador.findElement(By.className("icon-open")).click();
+        openLateralMenu();
         findByXPathClick("//a[@ng-click='questionarios()']");
         return new Quiz(navegador);
     }
     public AccessValidation lateralMenuAccessValidation(){
-        navegador.findElement(By.className("icon-open")).click();
+        openLateralMenu();
         findByXPathClick("//a[@ng-click='validarProfissionais()']");
         return new AccessValidation(navegador);
     }
     public ResultTypes lateralMenuResultTypes(){
-        navegador.findElement(By.className("icon-open")).click();
+        openLateralMenu();
         findByXPathClick("//a[@ng-click='resultados()']");
         return new ResultTypes(navegador);
     }
     public CareTypes lateralMenuCareTypes(){
-        navegador.findElement(By.className("icon-open")).click();
+        openLateralMenu();
         findByXPathClick("//a[@ng-click='tipoAtendimentos()']");
         return new CareTypes(navegador);
     }
     public UnavailabilityTypes lateralMenuUnavailabilityTypes(){
-        navegador.findElement(By.className("icon-open")).click();
+        openLateralMenu();
         findByXPathClick("//a[@ng-click='tipoIndisponibilidade()']");
         return new UnavailabilityTypes(navegador);
     }
     public Notifications lateralMenuNotifications(){
-        navegador.findElement(By.className("icon-open")).click();
+        openLateralMenu();
         findByXPathClick("//a[@ng-click='notificacoes()']");
         return new Notifications(navegador);
+    }
+
+    public RoutingTypes lateralMenuRouting(){
+        openLateralMenu();
+        findByXPathClick("//a[@ng-click='tipoEncaminhamento()']");
+        return new RoutingTypes(navegador);
+    }
+
+    public HealthUnits lateralMenuHealthUnits(){
+        openLateralMenu();
+        findByXPathClick("//a[@ng-click='unidadeSaude()']");
+        return new HealthUnits(navegador);
+    }
+    public Priorities lateralPriorities(){
+        openLateralMenu();
+        findByXPathClick("//a[@ng-click='prioridade()']");
+        return new Priorities(navegador);
     }
 
 
