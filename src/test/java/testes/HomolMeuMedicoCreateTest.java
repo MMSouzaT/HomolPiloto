@@ -21,7 +21,7 @@ public class HomolMeuMedicoCreateTest {
     }
 
     @Test
-    public void quizCreate() {
+    public void quizCreate() throws InterruptedException {
         new Quiz(navegador)
                 .newQuiz().firstQuadrant()
                 .secondQuadrant().thirdQuadrant()
@@ -48,7 +48,7 @@ public class HomolMeuMedicoCreateTest {
     @Test
     public void notificationCreate() {
         new DashPage(navegador).lateralMenuNotifications()
-                .newNotification().fillAllinNotification("Melhorando o código da automação", "31082020", "1426'")
+                .newNotification().fillAllinNotification("link e pdf aberto", "01092020", "1400'")
                 .goToAddUsers().addUser().successMessageN();
 
     }

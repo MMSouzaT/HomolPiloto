@@ -21,9 +21,7 @@ public class PageBase {
         clickButton(xpath);
     }
 
-    public void type(String xpath, String text) {
-        navegador.findElement(By.xpath(xpath)).sendKeys(text);
-    }
+    public void type(String xpath, String text) { navegador.findElement(By.xpath(xpath)).sendKeys(text); }
 
     public void clickButton(String xpath) {
         navegador.findElement(By.xpath(xpath)).click();
@@ -32,6 +30,10 @@ public class PageBase {
     public void selects(String xpath, String text) {
         WebElement campoType = navegador.findElement(By.xpath(xpath));
         new Select(campoType).selectByVisibleText(text);
+    }
+
+    public void wait1Second() throws InterruptedException {
+        Thread.sleep(500);
     }
 
     public PageBase findByLinkTextClick(String linkTextClick) {

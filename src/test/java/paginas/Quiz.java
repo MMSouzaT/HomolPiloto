@@ -1,10 +1,6 @@
 package paginas;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
 
 public class Quiz extends PageBase {
     public Quiz(WebDriver navegador) {
@@ -12,22 +8,23 @@ public class Quiz extends PageBase {
     }
 
     public Quiz activateQuiz() {
-        findByIdClick("activeQuiz");
+        clickButton("//input[@id='activeQuiz']");
         return this;
     }
 
     public Quiz newQuestion() {
-        findByXPathClick("//button[@data-target='.modal-perguntas']");
+        clickButton("//button[@data-target='.modal-perguntas']");
         return this;
     }
 
     public Quiz deleteQuestion() {
-        findByXPathClick("//a[@ng-click='deletarPergunta($index, pergunta.id)']");
-        findByXPathClick("//button[@class='btn btn-info btn-sim']");
+        clickButton("//a[@ng-click='deletarPergunta($index, pergunta.id)']");
+        clickButton("//button[@class='btn btn-info btn-sim']");
         return this;
     }
 
-    public Quiz firstQuadrant() {
+    public Quiz firstQuadrant() throws InterruptedException {
+        wait1Second();
         type("//input[@ng-model='questionario.title']", "01 - SWD");
         type("//input[@ng-model='questionario.description']", "Description by SWD");
         return this;
@@ -63,6 +60,7 @@ public class Quiz extends PageBase {
 
     public Quiz objetiveQuestion() {
         type("//input[@ng-model='form.title']", "01 - SWDOb");
+        clickButton("//input[@ng-model='form.inicial_question']");
         selects("//select[@ng-model='form.type']", "Resposta objetiva");
         clickButton("//a[@ng-click='novaResposta(form.type)']");
         type("//input[@id='answerTitle']", "01 - Answer");
@@ -76,18 +74,19 @@ public class Quiz extends PageBase {
     public Quiz newQuiz() {
         openLateralMenu("//a[@ng-click='questionarios()']");
         clickButton("//a[@ng-click='novoQuestionario()']");
-        return this;
+        return new Quiz(navegador);
     }
 
     public Quiz editQuiz() {
-        navegador.findElement(By.xpath("//input[@ng-model='questionario.title']")).sendKeys("01 - SWD");
-        findByLinkTextClick("PESQUISAR");
-        findByXPathClick("//a[@title='Editar']");
+        openLateralMenu("//a[@ng-click='questionarios()']");
+        type("//input[@ng-model='questionario.title']", "01 - SWD");
+        clickButton("//a[@ng-click='filtrarQuestionario()']");
+        clickButton("//a[@ng-click='editarQuestionario(item)']");
         return this;
     }
 
     public Quiz saveQuiz() {
-        findByXPathClick("//button[@ng-click='editarQuestionario()']");
+        clickButton("//button[@ng-click='editarQuestionario()']");
         return this;
     }
 

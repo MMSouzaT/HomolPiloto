@@ -13,11 +13,6 @@ public class DashPage extends PageBase {
 
     }
 
-    public Quiz lateralMenuQuiz(){
-        openLateralMenu();
-        findByXPathClick("//a[@ng-click='questionarios()']");
-        return new Quiz(navegador);
-    }
     public AccessValidation lateralMenuAccessValidation(){
         openLateralMenu();
         findByXPathClick("//a[@ng-click='validarProfissionais()']");

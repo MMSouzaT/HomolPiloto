@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import paginas.AdministrativeGroups;
 import paginas.DashPage;
 import paginas.LoginPage;
+import paginas.Quiz;
 import suporte.Web;
 
 public class HomolMeuMedicoEditTest {
@@ -19,15 +20,11 @@ public class HomolMeuMedicoEditTest {
     }
 
     @Test
-    public void quizEdit() {
-        new DashPage(navegador).lateralMenuQuiz()
-                .editQuiz()
-                .firstQuadrant().secondQuadrant()
-                .thirdQuadrant().newQuestion()
-                .subjetiveQuestion().saveQuiz()
-                .deleteQuestion()
-                .newQuestion().objetiveQuestion()
-                .activateQuiz().saveQuiz();
+    public void quizEdit() throws InterruptedException {
+        new Quiz(navegador).editQuiz()
+                .firstQuadrant().secondQuadrant().thirdQuadrant()
+                .newQuestion().subjetiveQuestion().saveQuiz()
+                .deleteQuestion().newQuestion().objetiveQuestion().saveQuiz();
     }
 
     @Test
