@@ -4,10 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import paginas.AdministrativeGroups;
-import paginas.DashPage;
-import paginas.LoginPage;
-import paginas.Quiz;
+import paginas.*;
 import suporte.Web;
 
 public class HomolMeuMedicoCreateTest {
@@ -38,9 +35,8 @@ public class HomolMeuMedicoCreateTest {
 
 
     @Test
-    public void validationCreate() {
-        new DashPage(navegador).lateralMenuAccessValidation()
-                .newValidation().fillAllValidationCreat()
+    public void validationCreate() throws InterruptedException {
+        new AccessValidation(navegador).newValidation().writeEverything().typeIdentifier()
                 .saveValidation().sucessfulMessageAV();
 
     }

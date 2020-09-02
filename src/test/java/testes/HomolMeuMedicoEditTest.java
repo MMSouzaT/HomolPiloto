@@ -4,10 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import paginas.AdministrativeGroups;
-import paginas.DashPage;
-import paginas.LoginPage;
-import paginas.Quiz;
+import paginas.*;
 import suporte.Web;
 
 public class HomolMeuMedicoEditTest {
@@ -35,11 +32,9 @@ public class HomolMeuMedicoEditTest {
     }
 
     @Test
-    public void validationEdit() {
-        new DashPage(navegador).lateralMenuAccessValidation()
-                .editValidation().cleanValidation()
-                .fillAllValidationEdit().saveValidation()
-                .sucessfulMessageAV();
+    public void accessValidationEdit() throws InterruptedException {
+        new AccessValidation(navegador).editValidation().writeEverything()
+                .saveValidation().sucessfulMessageAV();
 
     }
 
