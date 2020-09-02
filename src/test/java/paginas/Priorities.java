@@ -10,61 +10,40 @@ public class Priorities extends PageBase{
         super(navegador);
     }
 
-    public Priorities newPriority(){
-        findByXPathClick("//button[@data-target='.modal-priorities']");
+    public Priorities newPriority() throws InterruptedException {
+        openLateralMenu("//a[@ng-click='prioridade()']");
+        clickButton("//button[@data-target='.modal-priorities']");
         return this;
     }
 
-    public Priorities typeTitle(String title){
-        navegador.findElement(By.id("title")).sendKeys(title);
-        return this;
-    }
-    public Priorities typeWeight(String weight){
-        navegador.findElement(By.id("weight")).sendKeys(weight);
-        return this;
-    }
-
-    public Priorities selectSegment(String text) {
-        WebElement campoType = navegador.findElement(By.name("selectSegment"));
-        new Select(campoType).selectByVisibleText(text);
+    public Priorities writeEverything(){
+        type("//input[@id='title']","01 - SWD");
+        type("//input[@id='weight']","80");
+        selects("//select[@id='selectSegment']","Médico");
+        clickButton("//button[@id='cor']");
+        clickButton("//button[@title='Roxo']");
+        clickButton("//a[@ng-click='createUpdatePriority()']");
+        toastValidation("Prioridade cadastrada com sucesso");
         return this;
     }
 
-    public Priorities takeColor(){
-        findByIdClick("cor");
-        findByXPathClick("//button[@title='Roxo']");
+    public Priorities editPrior() throws InterruptedException {
+        openTypeFilter();
+        clickButton("//a[@title='Editar']");
+        return this;
+    }
+    public Priorities deletePrior() throws InterruptedException {
+        openTypeFilter();
+        clickButton("//a[@ng-click='deletePriority(item.id)']");
+        clickButton("//button[@style='float: left;']");
+        toastValidation("Registro excluído com sucesso");
         return this;
     }
 
-    public Priorities savePriority(){
-        findByXPathClick("//a[@ng-click='createUpdatePriority()']");
-        return this;
-    }
-
-    public Priorities makeAll(){
-        typeTitle("01 - SWD");
-        typeWeight("80");
-        selectSegment("Médico");
-        takeColor();
-        return this;
-    }
-
-    public Priorities cleanALl(){
-        typeTitle("");
-        typeWeight("");
-        selectSegment("Selecionar");
-        return this;
-    }
-    public Priorities editPrior() {
-        navegador.findElement(By.id("filterTitle")).sendKeys("01 - SWD");
-        findByXPathClick("//button[@ng-click='filterPriorities(1)']");
-        findByXPathClick("//a[@title='Editar']");
-        return this;
-    }
-    public Priorities delete(){
-        findByXPathClick("//a[@ng-click='deletePriority(item.id)']");
-        findByLinkTextClick("Sim");
-        return this;
+    public void openTypeFilter() throws InterruptedException {
+        openLateralMenu("//a[@ng-click='prioridade()']");
+        type("//input[@id='filterTitle']","01 - SWD");
+        clickButton("//button[@ng-click='filterPriorities(1)']");
     }
 
 }

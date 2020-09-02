@@ -61,10 +61,8 @@ public class HomolMeuMedicoEditTest {
 
 
     @Test
-    public void PrioritiesEdit() {
-        new DashPage(navegador).lateralPriorities()
-                .editPrior().cleanALl()
-                .makeAll().savePriority().delete();
+    public void PrioritiesEdit() throws InterruptedException {
+        new Priorities(navegador).editPrior().writeEverything();
     }
 
     @After

@@ -64,19 +64,13 @@ public class HomolMeuMedicoCreateTest {
 
     @Test
     public void notificationCreate() throws InterruptedException {
-        int i;
-        for (i = 0; i <= 4; i++) {
-            new DashPage(navegador).lateralMenuNotifications()
-                    .newNotification().fillAllinNotification("not" + i, "02092020", "1446'")
-                    .goToAddUsers().addUser().waitHalfASecond();//.successMessageN();
-        }
+         new Notifications(navegador)
+                 .newNotification().writeEverything("Automação Topos Informática", "31122020", "2359'").addUser();
     }
 
     @Test
-    public void PrioritiesCreate() {
-        new DashPage(navegador).lateralPriorities()
-                .newPriority().makeAll()
-                .savePriority();
+    public void PrioritiesCreate() throws InterruptedException {
+        new Priorities(navegador).newPriority().writeEverything();
     }
 
     @After

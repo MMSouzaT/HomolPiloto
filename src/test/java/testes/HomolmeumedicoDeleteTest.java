@@ -51,6 +51,10 @@ public class HomolmeumedicoDeleteTest {
         new RoutingTypes(navegador).deleteRouting();
     }
 
+    @Test
+    public void PrioritiesDelete() throws InterruptedException {
+        new Priorities(navegador).deletePrior();
+    }
 
     @After
     public void tearDown() throws InterruptedException {
