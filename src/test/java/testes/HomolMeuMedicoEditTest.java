@@ -55,6 +55,12 @@ public class HomolMeuMedicoEditTest {
     }
 
     @Test
+    public void routingTypesEdit() throws InterruptedException{
+        new RoutingTypes(navegador).editRouting();
+    }
+
+
+    @Test
     public void PrioritiesEdit() {
         new DashPage(navegador).lateralPriorities()
                 .editPrior().cleanALl()

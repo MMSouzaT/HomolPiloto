@@ -46,6 +46,12 @@ public class HomolmeumedicoDeleteTest {
         new UnavailabilityTypes(navegador).deleteUT();
     }
 
+    @Test
+    public void routingTypesDelete() throws InterruptedException{
+        new RoutingTypes(navegador).deleteRouting();
+    }
+
+
     @After
     public void tearDown() throws InterruptedException {
         Thread.sleep(500);

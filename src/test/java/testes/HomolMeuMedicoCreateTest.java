@@ -58,11 +58,16 @@ public class HomolMeuMedicoCreateTest {
     }
 
     @Test
+    public void routingTypesCreate() throws InterruptedException{
+        new RoutingTypes(navegador).newRouting().writeEverything();
+    }
+
+    @Test
     public void notificationCreate() throws InterruptedException {
         int i;
         for (i = 0; i <= 4; i++) {
             new DashPage(navegador).lateralMenuNotifications()
-                    .newNotification().fillAllinNotification("not" + i, "02092020", "1004'")
+                    .newNotification().fillAllinNotification("not" + i, "02092020", "1446'")
                     .goToAddUsers().addUser().waitHalfASecond();//.successMessageN();
         }
     }

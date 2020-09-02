@@ -62,12 +62,12 @@ public class Notifications extends PageBase {
     }
 
     public Notifications findUserByResgistration() {
-        navegador.findElement(By.id("filtroMatricula")).sendKeys("00666666666");
+        navegador.findElement(By.id("filtroMatricula")).sendKeys("00992773014");
         return this;
     }
 
     public Notifications findUserByName() {
-        navegador.findElement(By.id("filtroNome")).sendKeys("LEOVEGILDO");
+        navegador.findElement(By.id("filtroNome")).sendKeys("Márcio");
         return this;
     }
 
