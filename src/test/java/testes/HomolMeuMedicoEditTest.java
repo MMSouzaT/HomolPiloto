@@ -50,11 +50,8 @@ public class HomolMeuMedicoEditTest {
     }
 
     @Test
-    public void unavailabilityTypesEdit() {
-        new DashPage(navegador).lateralMenuUnavailabilityTypes()
-                .editUT().cleanAll()
-                .fillUnavailabilityType()
-                .saveUnavailableType().sucessMessageUT();
+    public void unavailabilityTypesEdit() throws InterruptedException {
+        new UnavailabilityTypes(navegador).editUT().writeEverything().saveUnavailableType();
     }
 
     @Test

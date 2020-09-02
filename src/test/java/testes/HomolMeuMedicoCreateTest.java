@@ -53,6 +53,11 @@ public class HomolMeuMedicoCreateTest {
     }
 
     @Test
+    public void unavailabilityTypesCreate() throws InterruptedException {
+        new UnavailabilityTypes(navegador).newUnavailableType().writeEverything().saveUnavailableType();
+    }
+
+    @Test
     public void notificationCreate() throws InterruptedException {
         int i;
         for (i = 0; i <= 4; i++) {
@@ -60,13 +65,6 @@ public class HomolMeuMedicoCreateTest {
                     .newNotification().fillAllinNotification("not" + i, "02092020", "1004'")
                     .goToAddUsers().addUser().waitHalfASecond();//.successMessageN();
         }
-    }
-
-    @Test
-    public void unavailabilityTypesCreate() {
-        new DashPage(navegador).lateralMenuUnavailabilityTypes()
-                .newUnavailableType().fillUnavailabilityType()
-                .saveUnavailableType().sucessMessageUT();
     }
 
     @Test

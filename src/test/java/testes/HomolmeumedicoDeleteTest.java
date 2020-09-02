@@ -41,6 +41,11 @@ public class HomolmeumedicoDeleteTest {
         new CareTypes(navegador).deleteCareType();
     }
 
+    @Test
+    public  void unavailabilityTypesDelete() throws InterruptedException{
+        new UnavailabilityTypes(navegador).deleteUT();
+    }
+
     @After
     public void tearDown() throws InterruptedException {
         Thread.sleep(500);
