@@ -13,7 +13,7 @@ public class HomolMeuMedicoEditTest {
     @Before
     public void setUp() {
         navegador = Web.createChrome();
-        new LoginPage(navegador).makeAllAboutLogin();
+        new PageBase(navegador).makeLogin();
     }
 
     @Test
@@ -27,7 +27,7 @@ public class HomolMeuMedicoEditTest {
     @Test
     public void admGroupEdit() throws InterruptedException {
         new AdministrativeGroups(navegador).editGroup()
-                .writeEverything().saveGroup().successMessageEdit();
+                .writeEverything().successMessageEdit();
 
     }
 
@@ -57,6 +57,10 @@ public class HomolMeuMedicoEditTest {
     @Test
     public void routingTypesEdit() throws InterruptedException{
         new RoutingTypes(navegador).editRouting();
+    }
+    @Test
+    public void healthUnitsEdit() throws InterruptedException {
+        new HealthUnits(navegador).editHealthUnit().writeEverything();
     }
 
 

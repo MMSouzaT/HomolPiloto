@@ -1,6 +1,5 @@
 package paginas;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AdministrativeGroups extends PageBase {
@@ -33,14 +32,10 @@ public class AdministrativeGroups extends PageBase {
         return this;
     }
 
-    public AdministrativeGroups saveGroup() {
-        clickButton("//a[@ng-click='SalvarGrupo()']");
-        return this;
-    }
-
     public AdministrativeGroups writeEverything() {
         type("//input[@ng-model='form.name']", "01 - SWD");
         type("//input[@ng-model='form.description']", "Description created by SWD");
+        clickButton("//a[@ng-click='SalvarGrupo()']");
         return this;
     }
 

@@ -37,21 +37,17 @@ public class PageBase {
         Thread.sleep(500);
     }
 
-    public PageBase findByLinkTextClick(String linkTextClick) {
-        navegador.findElement(By.linkText(linkTextClick)).click();
-        return this;
-    }
-
-    public PageBase findByIdClick(String idClick) {
-        navegador.findElement(By.id(idClick)).click();
-        return this;
-    }
 
     public PageBase findByXPathClick(String xpathClick) {
         navegador.findElement(By.xpath(xpathClick)).click();
         return this;
     }
-
+    public PageBase makeLogin(){
+        type("//input[@id='matriculaSms']","00888888888");
+        type("//input[@id='senha']","3322");
+        clickButton("//button[@ng-click='login()']");
+        return new PageBase(navegador);
+    }
     public PageBase toastValidation(String mensagem) {
         String capturedMessage = navegador.findElement(By.className("toast-message")).getText();
         assertEquals(mensagem, capturedMessage);

@@ -13,8 +13,7 @@ public class HomolMeuMedicoCreateTest {
     @Before
     public void setUp() {
         navegador = Web.createChrome();
-        new LoginPage(navegador).makeAllAboutLogin();
-
+        new PageBase(navegador).makeLogin();
     }
 
     @Test
@@ -30,7 +29,7 @@ public class HomolMeuMedicoCreateTest {
     @Test
     public void admGroupCreate() throws InterruptedException {
         new AdministrativeGroups(navegador).groupCreate()
-                .writeEverything().saveGroup().successMessage();
+                .writeEverything().successMessage();
     }
 
 
@@ -60,6 +59,11 @@ public class HomolMeuMedicoCreateTest {
     @Test
     public void routingTypesCreate() throws InterruptedException{
         new RoutingTypes(navegador).newRouting().writeEverything();
+    }
+
+    @Test
+    public void healthUnitsCreate() throws InterruptedException {
+        new HealthUnits(navegador).newHealthUnit().writeEverything();
     }
 
     @Test

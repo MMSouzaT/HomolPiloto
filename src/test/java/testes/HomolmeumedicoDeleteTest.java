@@ -13,7 +13,7 @@ public class HomolmeumedicoDeleteTest {
     @Before
     public void setUp() {
         navegador = Web.createChrome();
-        new LoginPage(navegador).makeAllAboutLogin();
+        new PageBase(navegador).makeLogin();
     }
 
     @Test
@@ -49,6 +49,11 @@ public class HomolmeumedicoDeleteTest {
     @Test
     public void routingTypesDelete() throws InterruptedException{
         new RoutingTypes(navegador).deleteRouting();
+    }
+
+    @Test
+    public void healthUnitsDelete() throws InterruptedException {
+        new HealthUnits(navegador).deleteHealthUnit();
     }
 
     @Test

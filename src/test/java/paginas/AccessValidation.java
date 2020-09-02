@@ -1,9 +1,6 @@
 package paginas;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 public class AccessValidation extends PageBase {
     public AccessValidation(WebDriver navegador) {
@@ -23,7 +20,7 @@ public class AccessValidation extends PageBase {
     }
 
     public AccessValidation typeIdentifier() {
-        type("//input[@ng-model='form.identificador']","SeleniumWD");
+        type("//input[@ng-model='form.identificador']", "SeleniumWD");
         return this;
     }
 
@@ -43,14 +40,14 @@ public class AccessValidation extends PageBase {
 
     public void openTypeFilter() throws InterruptedException {
         openLateralMenu("//a[@ng-click='validarProfissionais()']");
-        type("//input[@id='filtroNome']","01 - SWD");
+        type("//input[@id='filtroNome']", "01 - SWD");
         clickButton("//button[@ng-click='filtrarAcesso()']");
     }
 
     public AccessValidation writeEverything() {
-        type("//input[@ng-model='form.nome']","01 - SWD");
+        type("//input[@ng-model='form.nome']", "01 - SWD");
         type("//input[@ng-model='form.senha']", "1234567");
-        selects("//select[@ng-model='form.perfil.id']","MEDICO");
+        selects("//select[@ng-model='form.perfil.id']", "MEDICO");
         return this;
     }
 
