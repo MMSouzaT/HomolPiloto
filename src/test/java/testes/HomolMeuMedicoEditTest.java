@@ -34,23 +34,19 @@ public class HomolMeuMedicoEditTest {
     @Test
     public void accessValidationEdit() throws InterruptedException {
         new AccessValidation(navegador).editValidation().writeEverything()
-                .saveValidation().sucessfulMessageAV();
+                .saveValidation();
 
     }
 
     @Test
-    public void resultTypesEdit() {
-        new DashPage(navegador).lateralMenuResultTypes()
-                .editResult().cleanResult()
-                .fillAllInResult()
-                .saveResultEdit().successMessageEditRT();
+    public void resultTypesEdit() throws InterruptedException {
+        new ResultTypes(navegador).editResult().writeEverything()
+                .saveResultEdit();
     }
 
     @Test
-    public void careTypesEdit() {
-        new DashPage(navegador).lateralMenuCareTypes()
-                .editCareType().cleanAll()
-                .fillCareType().saveCareTypeEdit().successMessageEditCT();
+    public void careTypesEdit() throws InterruptedException {
+        new CareTypes(navegador).editCareType().writeEverything().saveCareTypeEdit();
     }
 
     @Test

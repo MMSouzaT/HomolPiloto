@@ -35,12 +35,22 @@ public class HomolMeuMedicoCreateTest {
 
 
     @Test
-    public void validationCreate() throws InterruptedException {
+    public void accessValidationCreate() throws InterruptedException {
         new AccessValidation(navegador).newValidation().writeEverything().typeIdentifier()
-                .saveValidation().sucessfulMessageAV();
+                .saveValidation();
 
     }
 
+    @Test
+    public void resultTypesCreate() throws InterruptedException {
+        new ResultTypes(navegador).newResult().writeEverything()
+                .saveResultCreat();
+    }
+
+    @Test
+    public void careTypesCreate() throws InterruptedException {
+        new CareTypes(navegador).newCareType().writeEverything().saveCareTypeCreate();
+    }
 
     @Test
     public void notificationCreate() throws InterruptedException {
@@ -50,22 +60,6 @@ public class HomolMeuMedicoCreateTest {
                     .newNotification().fillAllinNotification("not" + i, "02092020", "1004'")
                     .goToAddUsers().addUser().waitHalfASecond();//.successMessageN();
         }
-    }
-
-
-
-    @Test
-    public void resultTypesCreate() {
-        new DashPage(navegador).lateralMenuResultTypes()
-                .newResult().fillAllInResult()
-                .saveResultCreat().successMessageRT();
-    }
-
-    @Test
-    public void careTypesCreate() {
-        new DashPage(navegador).lateralMenuCareTypes()
-                .newCareType().fillCareType()
-                .saveCareTypeCreate().successMessageCT();
     }
 
     @Test

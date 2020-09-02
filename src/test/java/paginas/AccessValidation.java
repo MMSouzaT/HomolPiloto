@@ -18,6 +18,7 @@ public class AccessValidation extends PageBase {
 
     public AccessValidation saveValidation() {
         clickButton("//button[@ng-click='createValidation(form)']");
+        toastValidation("Validação registrada com sucesso");
         return this;
     }
 
@@ -36,7 +37,7 @@ public class AccessValidation extends PageBase {
         openTypeFilter();
         clickButton("//a[@ng-click='deleteValidation(item.id, $index)']");
         clickButton("//button[@style='float: left;']");
-
+        toastValidation("Registro excluído com sucesso");
         return this;
     }
 
@@ -53,12 +54,4 @@ public class AccessValidation extends PageBase {
         return this;
     }
 
-    public AccessValidation sucessfulMessageAV( ){
-        toastValidation("Validação registrada com sucesso");
-        return this;
-    }
-    public AccessValidation successDeleteMessage( ){
-        toastValidation("Registro excluído com sucesso");
-        return this;
-    }
 }

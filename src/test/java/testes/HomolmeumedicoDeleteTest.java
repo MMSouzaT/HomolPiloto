@@ -4,10 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import paginas.AccessValidation;
-import paginas.AdministrativeGroups;
-import paginas.LoginPage;
-import paginas.Quiz;
+import paginas.*;
 import suporte.Web;
 
 public class HomolmeumedicoDeleteTest {
@@ -31,7 +28,17 @@ public class HomolmeumedicoDeleteTest {
 
     @Test
     public void accessValidationDelete() throws InterruptedException {
-        new AccessValidation(navegador).deleteValidation().successDeleteMessage();
+        new AccessValidation(navegador).deleteValidation();
+    }
+
+    @Test
+    public void resultTypesDelete() throws InterruptedException {
+        new ResultTypes(navegador).deleteResult();
+    }
+
+    @Test
+    public void careTypesDelete() throws InterruptedException{
+        new CareTypes(navegador).deleteCareType();
     }
 
     @After
