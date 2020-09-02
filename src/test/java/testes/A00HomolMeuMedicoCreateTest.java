@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import paginas.*;
 import suporte.Web;
 
-public class HomolMeuMedicoCreateTest {
+public class A00HomolMeuMedicoCreateTest {
     private WebDriver navegador;
 
     @Before
