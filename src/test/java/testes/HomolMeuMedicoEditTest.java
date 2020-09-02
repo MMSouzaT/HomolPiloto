@@ -28,7 +28,7 @@ public class HomolMeuMedicoEditTest {
     }
 
     @Test
-    public void admGroupEdit() {
+    public void admGroupEdit() throws InterruptedException {
         new AdministrativeGroups(navegador).editGroup()
                 .writeEverything().saveGroup().successMessageEdit();
 
@@ -74,7 +74,8 @@ public class HomolMeuMedicoEditTest {
     }
 
     @After
-    public void tearDown() {
-        //navegador.quit();
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(500);
+        navegador.quit();
     }
 }

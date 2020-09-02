@@ -33,8 +33,9 @@ public class DashPage extends PageBase {
         findByXPathClick("//a[@ng-click='tipoIndisponibilidade()']");
         return new UnavailabilityTypes(navegador);
     }
-    public Notifications lateralMenuNotifications(){
+    public Notifications lateralMenuNotifications() throws InterruptedException {
         openLateralMenu();
+        waitHalfASecond();
         findByXPathClick("//a[@ng-click='notificacoes()']");
         return new Notifications(navegador);
     }

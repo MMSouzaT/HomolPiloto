@@ -31,7 +31,7 @@ public class HomolMeuMedicoCreateTest {
     }
 
     @Test
-    public void admGroupCreate() {
+    public void admGroupCreate() throws InterruptedException {
         new AdministrativeGroups(navegador).groupCreate()
                 .writeEverything().saveGroup().successMessage();
     }
@@ -45,13 +45,18 @@ public class HomolMeuMedicoCreateTest {
 
     }
 
-    @Test
-    public void notificationCreate() {
-        new DashPage(navegador).lateralMenuNotifications()
-                .newNotification().fillAllinNotification("link e pdf aberto", "01092020", "1400'")
-                .goToAddUsers().addUser().successMessageN();
 
+    @Test
+    public void notificationCreate() throws InterruptedException {
+        int i;
+        for (i = 0; i <= 4; i++) {
+            new DashPage(navegador).lateralMenuNotifications()
+                    .newNotification().fillAllinNotification("not" + i, "02092020", "1004'")
+                    .goToAddUsers().addUser().waitHalfASecond();//.successMessageN();
+        }
     }
+
+
 
     @Test
     public void resultTypesCreate() {
@@ -82,7 +87,8 @@ public class HomolMeuMedicoCreateTest {
     }
 
     @After
-    public void tearDown() {
-        //navegador.quit();
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(500);
+        navegador.quit();
     }
 }

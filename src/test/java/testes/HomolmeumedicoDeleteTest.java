@@ -1,10 +1,12 @@
 package testes;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import paginas.AdministrativeGroups;
 import paginas.LoginPage;
+import paginas.Quiz;
 import suporte.Web;
 
 public class HomolmeumedicoDeleteTest {
@@ -17,14 +19,20 @@ public class HomolmeumedicoDeleteTest {
     }
 
     @Test
-    public void quizDelete(){
-
+    public void quizDelete() throws InterruptedException {
+        new Quiz(navegador).deleteQuiz().successDeleteMessage();
     }
 
     @Test
-    public void admGroupDelete() {
+    public void admGroupDelete() throws InterruptedException {
         new AdministrativeGroups(navegador).deleteGroup();
 
+    }
+
+    @After
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(500);
+        navegador.quit();
     }
 
 }

@@ -16,8 +16,9 @@ public class PageBase {
         this.navegador = navegador;
     }
 
-    public void openLateralMenu(String xpath) {
+    public void openLateralMenu(String xpath) throws InterruptedException {
         navegador.findElement(By.className("icon-open")).click();
+        waitHalfASecond();
         clickButton(xpath);
     }
 
@@ -32,7 +33,7 @@ public class PageBase {
         new Select(campoType).selectByVisibleText(text);
     }
 
-    public void wait1Second() throws InterruptedException {
+    public void waitHalfASecond() throws InterruptedException {
         Thread.sleep(500);
     }
 
