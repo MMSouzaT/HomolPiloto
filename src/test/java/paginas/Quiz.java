@@ -12,8 +12,9 @@ public class Quiz extends PageBase {
         return this;
     }
 
-    public Quiz newQuestion() {
+    public Quiz newQuestion() throws InterruptedException {
         clickButton("//button[@data-target='.modal-perguntas']");
+        waitHalfASecond();
         return this;
     }
 
@@ -53,14 +54,14 @@ public class Quiz extends PageBase {
     public Quiz subjetiveQuestion() {
         type("//input[@ng-model='form.title']", "01 - SWDSub");
         selects("//select[@ng-model='form.type']", "Resposta subjetiva");
-        clickButton("//input[@ng-model='form.inicial_question']");
+        clickButton("//input[@id='firstQuestion']");
         saveQuestion();
         return this;
     }
 
     public Quiz objetiveQuestion() {
         type("//input[@ng-model='form.title']", "01 - SWDOb");
-        clickButton("//input[@ng-model='form.inicial_question']");
+        clickButton("//input[@id='firstQuestion']");
         selects("//select[@ng-model='form.type']", "Resposta objetiva");
         clickButton("//a[@ng-click='novaResposta(form.type)']");
         type("//input[@id='answerTitle']", "01 - Answer");
