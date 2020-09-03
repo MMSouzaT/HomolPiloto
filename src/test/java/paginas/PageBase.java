@@ -23,7 +23,9 @@ public class PageBase {
         clickButton(xpath);
     }
 
-    public void type(String xpath, String text) { navegador.findElement(By.xpath(xpath)).sendKeys(text); }
+    public void type(String xpath, String text) {
+        navegador.findElement(By.xpath(xpath)).sendKeys(text);
+    }
 
     public void clickButton(String xpath) {
         navegador.findElement(By.xpath(xpath)).click();
@@ -38,12 +40,13 @@ public class PageBase {
         Thread.sleep(500);
     }
 
-    public PageBase makeLogin(){
-        type("//input[@id='matriculaSms']","00888888888");
-        type("//input[@id='senha']","3322");
+    public PageBase makeLogin() {
+        type("//input[@id='matriculaSms']", "00888888888");
+        type("//input[@id='senha']", "3322");
         clickButton("//button[@ng-click='login()']");
         return new PageBase(navegador);
     }
+
     public PageBase toastValidation(String mensagem) {
         String capturedMessage = navegador.findElement(By.className("toast-message")).getText();
         assertEquals(mensagem, capturedMessage);
@@ -52,8 +55,10 @@ public class PageBase {
 
     public void openTypeFilter(String lateralMenu, String xpath, String button) throws InterruptedException {
         openLateralMenu(lateralMenu);
-        type(xpath,swd);
+        waitHalfASecond();
+        type(xpath, swd);
         clickButton(button);
+        waitHalfASecond();
     }
 
 }

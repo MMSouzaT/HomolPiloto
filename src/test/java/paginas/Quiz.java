@@ -85,6 +85,7 @@ public class Quiz extends PageBase {
     }
 
     public Quiz deleteQuiz() throws InterruptedException {
+
         openTypeFilter("//a[@ng-click='questionarios()']", "//input[@ng-model='questionario.title']", "//a[@ng-click='filtrarQuestionario()']");
         clickButton("//a[@ng-click='deletarQuestionario(item.id, $index)']");
         clickButton("//button[@style='float: left;']");

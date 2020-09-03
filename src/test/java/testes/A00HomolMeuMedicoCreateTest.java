@@ -68,8 +68,9 @@ public class A00HomolMeuMedicoCreateTest {
 
     @Test
     public void notificationCreate() throws InterruptedException {
-         new Notifications(navegador)
-                 .newNotification().writeEverything("Automação Topos Informática", "31122020", "2359'").addUser();
+              new Notifications(navegador)
+                    .newNotification().writeEverything("Deslogado", "03092020", "2359'").addUser();
+
     }
 
     @Test

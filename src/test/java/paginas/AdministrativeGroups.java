@@ -15,7 +15,8 @@ public class AdministrativeGroups extends PageBase {
 
     public AdministrativeGroups deleteGroup() throws InterruptedException {
         openTypeFilter("//a[@ng-click='grupos()']", "//input[@id='IdGrupoNome']", "//a[@ng-click='filter(1)']");
-        clickButton("//a[@title='Excluir']");
+
+        clickButton("//a[@data-target='.modal-grupo-deletar']");
         clickButton("//a[@ng-click='DeletarGrupo()']");
         return this;
     }
