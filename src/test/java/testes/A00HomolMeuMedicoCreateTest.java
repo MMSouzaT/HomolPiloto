@@ -66,10 +66,18 @@ public class A00HomolMeuMedicoCreateTest {
         new HealthUnits(navegador).newHealthUnit().writeEverything();
     }
 
-    @Test
+//    @Test //com loop
+//    public void notificationCreate() throws InterruptedException {
+//        int i;
+//        for (i = 0; i <= 5; i++){
+//            new Notifications(navegador)
+//                    .newNotification().writeEverything("Automação Topos Informática " + i, "03092020", "1616'").addUser();
+//        }
+//    }
+    @Test //sem loop
     public void notificationCreate() throws InterruptedException {
               new Notifications(navegador)
-                    .newNotification().writeEverything("Automação Topos Informática", "01012021", "2359'").addUser();
+                    .newNotification().writeEverything("Automação Topos Informática", "01012021", "0001'").addUser();
 
     }
 

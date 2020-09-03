@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="testes.A00HomolMeuMedicoCreateTest" time="104.06" errors="0" skipped="0">
+<testsuite tests="10" failures="0" name="testes.A00HomolMeuMedicoCreateTest" time="116.959" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_261\jre\bin"/>
@@ -65,14 +65,14 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="PrioritiesCreate" time="11.852"/>
-  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="healthUnitsCreate" time="10.784"/>
-  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="quizCreate" time="13.02"/>
-  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="unavailabilityTypesCreate" time="9.59"/>
-  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="routingTypesCreate" time="9.096"/>
-  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="careTypesCreate" time="10.071"/>
-  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="resultTypesCreate" time="9.259"/>
-  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="accessValidationCreate" time="9.222"/>
-  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="notificationCreate" time="10.863"/>
-  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="admGroupCreate" time="10.303"/>
+  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="PrioritiesCreate" time="14.329"/>
+  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="healthUnitsCreate" time="11.666"/>
+  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="quizCreate" time="16.157"/>
+  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="unavailabilityTypesCreate" time="10.029"/>
+  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="routingTypesCreate" time="10.833"/>
+  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="careTypesCreate" time="9.548"/>
+  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="resultTypesCreate" time="10.293"/>
+  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="accessValidationCreate" time="11.449"/>
+  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="notificationCreate" time="12.924"/>
+  <testcase classname="testes.A00HomolMeuMedicoCreateTest" name="admGroupCreate" time="9.731"/>
 </testsuite>

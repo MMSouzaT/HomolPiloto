@@ -18,6 +18,7 @@ public class PageBase {
     }
 
     public void openLateralMenu(String xpath) throws InterruptedException {
+        navegador.manage().window().maximize();
         navegador.findElement(By.className("icon-open")).click();
         waitHalfASecond();
         clickButton(xpath);
