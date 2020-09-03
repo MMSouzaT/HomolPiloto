@@ -23,7 +23,7 @@ public class UnavailabilityTypes extends PageBase {
     }
 
     public UnavailabilityTypes writeEverything() {
-        type("//input[@ng-model='formEdit.name']", "01 - SWD");
+        type("//input[@ng-model='formEdit.name']", swd);
         type("//input[@ng-model='formEdit.description']", "Description by SWD");
         return this;
     }

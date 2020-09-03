@@ -26,7 +26,7 @@ public class Quiz extends PageBase {
 
     public Quiz firstQuadrant() throws InterruptedException {
         waitHalfASecond();
-        type("//input[@ng-model='questionario.title']", "01 - SWD");
+        type("//input[@ng-model='questionario.title']", swd);
         type("//input[@ng-model='questionario.description']", "Description by SWD");
         return this;
     }
@@ -52,7 +52,7 @@ public class Quiz extends PageBase {
     }
 
     public Quiz subjetiveQuestion() {
-        type("//input[@ng-model='form.title']", "01 - SWDSub");
+        type("//input[@ng-model='form.title']", swd + " Sub");
         selects("//select[@ng-model='form.type']", "Resposta subjetiva");
         clickButton("//input[@id='firstQuestion']");
         saveQuestion();
@@ -60,7 +60,7 @@ public class Quiz extends PageBase {
     }
 
     public Quiz objetiveQuestion() {
-        type("//input[@ng-model='form.title']", "01 - SWDOb");
+        type("//input[@ng-model='form.title']", swd + " Ob");
         clickButton("//input[@id='firstQuestion']");
         selects("//select[@ng-model='form.type']", "Resposta objetiva");
         clickButton("//a[@ng-click='novaResposta(form.type)']");
@@ -78,22 +78,14 @@ public class Quiz extends PageBase {
         return new Quiz(navegador);
     }
 
-    public Quiz openTypeFilter() throws InterruptedException {
-        openLateralMenu("//a[@ng-click='questionarios()']");
-        type("//input[@ng-model='questionario.title']", "01 - SWD");
-        clickButton("//a[@ng-click='filtrarQuestionario()']");
-        waitHalfASecond();
-        return this;
-    }
-
     public Quiz editQuiz() throws InterruptedException {
-        openTypeFilter();
+        openTypeFilter("//a[@ng-click='questionarios()']", "//input[@ng-model='questionario.title']", "//a[@ng-click='filtrarQuestionario()']");
         clickButton("//a[@ng-click='editarQuestionario(item)']");
         return this;
     }
 
     public Quiz deleteQuiz() throws InterruptedException {
-        openTypeFilter();
+        openTypeFilter("//a[@ng-click='questionarios()']", "//input[@ng-model='questionario.title']", "//a[@ng-click='filtrarQuestionario()']");
         clickButton("//a[@ng-click='deletarQuestionario(item.id, $index)']");
         clickButton("//button[@style='float: left;']");
         return this;

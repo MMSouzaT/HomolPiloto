@@ -13,7 +13,7 @@ public class RoutingTypes extends PageBase{
         return this;
     }
     public RoutingTypes writeEverything(){
-        type("//input[@id='name']","01 - SWD");
+        type("//input[@id='name']",swd);
         clickButton("//label[contains(text(), 'Unidade Padrão')]");
         saveRouting();
         return this;
@@ -25,7 +25,7 @@ public class RoutingTypes extends PageBase{
     }
 
     public RoutingTypes editRouting() throws InterruptedException {
-        openTypeFilter();
+        openTypeFilter("//a[@ng-click='tipoEncaminhamento()']","//input[@id='healthUnit']","//button[@ng-click='filtrarTipoEncaminhamento()']");
         clickButton("//a[@title='Editar']");
         clickButton("//label[contains(text(), 'Unidade Padrão')]");
         writeEverything();
@@ -33,16 +33,10 @@ public class RoutingTypes extends PageBase{
     }
 
     public RoutingTypes deleteRouting() throws InterruptedException {
-        openTypeFilter();
+        openTypeFilter("//a[@ng-click='tipoEncaminhamento()']","//input[@id='healthUnit']","//button[@ng-click='filtrarTipoEncaminhamento()']");
         clickButton("//a[@title='Excluir']");
         clickButton("//button[@style='float: left;']");
         toastValidation("Registro excluído com sucesso");
         return this;
-    }
-
-    public void openTypeFilter() throws InterruptedException {
-        openLateralMenu("//a[@ng-click='tipoEncaminhamento()']");
-        type("//input[@id='healthUnit']","01 - SWD");
-        clickButton("//button[@ng-click='filtrarTipoEncaminhamento()']");
     }
 }

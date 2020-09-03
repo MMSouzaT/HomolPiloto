@@ -26,26 +26,20 @@ public class CareTypes extends PageBase {
     }
 
     public CareTypes editCareType() throws InterruptedException {
-        openTypeFilter();
+        openTypeFilter("//a[@ng-click='tipoAtendimentos()']", "//input[@id='nameFilter']","//button[@ng-click='filterTypeTreatments(1)']" );
         clickButton("//a[@data-target='.modal-tipo-atendimento']");
         return this;
     }
     public CareTypes deleteCareType() throws InterruptedException {
-        openTypeFilter();
+        openTypeFilter("//a[@ng-click='tipoAtendimentos()']", "//input[@id='nameFilter']","//button[@ng-click='filterTypeTreatments(1)']" );
         clickButton("//a[@ng-click='deletarTipoAtendimento(item.id)']");
         clickButton("//button[@style='float: left;']");
         toastValidation("Registro excluído com sucesso");
         return this;
     }
-    public void openTypeFilter() throws InterruptedException {
-        openLateralMenu("//a[@ng-click='tipoAtendimentos()']");
-        type("//input[@id='nameFilter']","01 - SWD");
-        clickButton("//button[@ng-click='filterTypeTreatments(1)']");
-    }
-
 
     public CareTypes writeEverything() {
-        type("//input[@ng-model='formEdit.name']", "01 - SWD");
+        type("//input[@ng-model='formEdit.name']", swd);
         selects("//select[@ng-model='formEdit.segment']", "Médico");
         return this;
     }

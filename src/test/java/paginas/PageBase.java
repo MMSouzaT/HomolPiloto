@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 
 public class PageBase {
 
+    public String swd = "01 - SWD";
     protected WebDriver navegador;
 
     public PageBase(WebDriver navegador) {
@@ -37,11 +38,6 @@ public class PageBase {
         Thread.sleep(500);
     }
 
-
-    public PageBase findByXPathClick(String xpathClick) {
-        navegador.findElement(By.xpath(xpathClick)).click();
-        return this;
-    }
     public PageBase makeLogin(){
         type("//input[@id='matriculaSms']","00888888888");
         type("//input[@id='senha']","3322");
@@ -52,6 +48,12 @@ public class PageBase {
         String capturedMessage = navegador.findElement(By.className("toast-message")).getText();
         assertEquals(mensagem, capturedMessage);
         return this;
+    }
+
+    public void openTypeFilter(String lateralMenu, String xpath, String button) throws InterruptedException {
+        openLateralMenu(lateralMenu);
+        type(xpath,swd);
+        clickButton(button);
     }
 
 }

@@ -25,27 +25,21 @@ public class AccessValidation extends PageBase {
     }
 
     public AccessValidation editValidation() throws InterruptedException {
-        openTypeFilter();
+        openTypeFilter("//a[@ng-click='validarProfissionais()']", "//input[@id='filtroNome']","//button[@ng-click='filtrarAcesso()']");
         clickButton("//a[@title='Editar']");
         return this;
     }
 
     public AccessValidation deleteValidation() throws InterruptedException {
-        openTypeFilter();
+        openTypeFilter("//a[@ng-click='validarProfissionais()']", "//input[@id='filtroNome']","//button[@ng-click='filtrarAcesso()']");
         clickButton("//a[@ng-click='deleteValidation(item.id, $index)']");
         clickButton("//button[@style='float: left;']");
         toastValidation("Registro excluído com sucesso");
         return this;
     }
 
-    public void openTypeFilter() throws InterruptedException {
-        openLateralMenu("//a[@ng-click='validarProfissionais()']");
-        type("//input[@id='filtroNome']", "01 - SWD");
-        clickButton("//button[@ng-click='filtrarAcesso()']");
-    }
-
     public AccessValidation writeEverything() {
-        type("//input[@ng-model='form.nome']", "01 - SWD");
+        type("//input[@ng-model='form.nome']", swd);
         type("//input[@ng-model='form.senha']", "1234567");
         selects("//select[@ng-model='form.perfil.id']", "MEDICO");
         return this;
