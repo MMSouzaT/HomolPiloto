@@ -16,7 +16,7 @@ public class Notifications extends PageBase {
     public Notifications addUser() throws InterruptedException {
         waitHalfASecond();
         type("//input[@id='filtroMatricula']","00992773014"); //altere aqui para alterar o número que você quer a notificação
-        type("//input[@id='filtroNome']","Márcio"); //altere aqui pra alterar o nome da pessoa que você quer a notificação
+        type("//input[@id='filtroNome']","Marcio"); //altere aqui pra alterar o nome da pessoa que você quer a notificação
         selects("//select[@id='filtroPerfil']","Selecionar");
         clickButton("//button[@ng-click='filterListUsers(1)']");
         clickButton("//input[@ng-change='addUser(item)']");

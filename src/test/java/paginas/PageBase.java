@@ -41,7 +41,7 @@ public class PageBase {
         Thread.sleep(500);
     }
 
-    public PageBase makeLogin() {
+    public PageBase SignIn() {
         type("//input[@id='matriculaSms']", "00888888888");
         type("//input[@id='senha']", "3322");
         clickButton("//button[@ng-click='login()']");
@@ -62,4 +62,12 @@ public class PageBase {
         waitHalfASecond();
     }
 
+    public void takeLineAndClick(String xpath) {
+        WebElement pegandoLinha = navegador.findElement(By.xpath("//tr//td[contains(text(), '01 - SWD')]"));
+        pegandoLinha.findElement(By.xpath(xpath)).click();
+    }
+
+    public void save(String xpath){
+        clickButton(xpath);
+    }
 }

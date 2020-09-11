@@ -43,8 +43,4 @@ public class UnavailabilityTypes extends PageBase {
         return this;
     }
 
-    public void takeLineAndClick(String xpath) {
-        WebElement pegandoLinha = navegador.findElement(By.xpath("//tr//td[contains(text(), '01 - SWD')]"));
-        pegandoLinha.findElement(By.xpath(xpath)).click();
-    }
 }

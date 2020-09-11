@@ -46,20 +46,18 @@ public class Quiz extends PageBase {
         return this;
     }
 
-    public void saveQuestion() {
-        clickButton("//a[@ng-click='criarPerguntaResposta()']");
-
-    }
-
-    public Quiz subjetiveQuestion() {
+    public Quiz subjetiveQuestion() throws InterruptedException {
+        newQuestion();
         type("//input[@ng-model='form.title']", swd + " Sub");
         selects("//select[@ng-model='form.type']", "Resposta subjetiva");
         clickButton("//input[@id='firstQuestion']");
-        saveQuestion();
+        save("//a[@ng-click='criarPerguntaResposta()']");//salvar pergunta
+        save("//button[@ng-click='editarQuestionario()']");//salvar questionário
         return this;
     }
 
-    public Quiz objetiveQuestion() {
+    public Quiz objetiveQuestion() throws InterruptedException {
+        newQuestion();
         type("//input[@ng-model='form.title']", swd + " Ob");
         clickButton("//input[@id='firstQuestion']");
         selects("//select[@ng-model='form.type']", "Resposta objetiva");
@@ -68,7 +66,8 @@ public class Quiz extends PageBase {
         type("//input[@id='weight']", "1");
         type("//input[@id='order']", "1");
         clickButton("//a[@ng-click='registerAnswer()']");
-        saveQuestion();
+        save("//a[@ng-click='criarPerguntaResposta()']");//salvar pergunta
+        save("//button[@ng-click='editarQuestionario()']");//salvar questionário
         return this;
     }
 
@@ -85,15 +84,9 @@ public class Quiz extends PageBase {
     }
 
     public Quiz deleteQuiz() throws InterruptedException {
-
         openTypeFilter("//a[@ng-click='questionarios()']", "//input[@ng-model='questionario.title']", "//a[@ng-click='filtrarQuestionario()']");
         clickButton("//a[@ng-click='deletarQuestionario(item.id, $index)']");
         clickButton("//button[@style='float: left;']");
-        return this;
-    }
-
-    public Quiz saveQuiz() {
-        clickButton("//button[@ng-click='editarQuestionario()']");
         return this;
     }
 

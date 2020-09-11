@@ -13,7 +13,7 @@ public class A00HomolMeuMedicoCreateTest {
     @Before
     public void setUp() {
         navegador = Web.createChrome();
-        new PageBase(navegador).makeLogin();
+        new PageBase(navegador).SignIn();
     }
 
     @Test
@@ -21,9 +21,9 @@ public class A00HomolMeuMedicoCreateTest {
         new Quiz(navegador)
                 .newQuiz().firstQuadrant()
                 .secondQuadrant().thirdQuadrant()
-                .newQuestion().subjetiveQuestion().saveQuiz()
-                .deleteQuestion().newQuestion()
-                .objetiveQuestion().activateQuiz().saveQuiz();
+                .subjetiveQuestion()
+                .deleteQuestion()
+                .objetiveQuestion().activateQuiz();
     }
 
     @Test
@@ -77,12 +77,17 @@ public class A00HomolMeuMedicoCreateTest {
     @Test //sem loop
     public void notificationCreate() throws InterruptedException {
               new Notifications(navegador)
-                    .newNotification().writeEverything("Automação Topos Informática", "01012021", "0001'").addUser();
+                    .newNotification().writeEverything("chat aberto 6min", "11092020", "1043'").addUser();
     }
 
     @Test
     public void PrioritiesCreate() throws InterruptedException {
         new Priorities(navegador).newPriority().writeEverything();
+    }
+
+    @Test
+    public void CategoriesCreate() throws InterruptedException{
+        new Categories(navegador).newCategory().writeEverything();
     }
 
     @After

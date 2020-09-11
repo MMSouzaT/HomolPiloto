@@ -15,7 +15,6 @@ public class AdministrativeGroups extends PageBase {
 
     public AdministrativeGroups deleteGroup() throws InterruptedException {
         openTypeFilter("//a[@ng-click='grupos()']", "//input[@id='IdGrupoNome']", "//a[@ng-click='filter(1)']");
-
         clickButton("//a[@data-target='.modal-grupo-deletar']");
         clickButton("//a[@ng-click='DeletarGrupo()']");
         return this;
@@ -29,7 +28,7 @@ public class AdministrativeGroups extends PageBase {
     public AdministrativeGroups writeEverything() {
         type("//input[@ng-model='form.name']", swd);
         type("//input[@ng-model='form.description']", "Description created by SWD");
-        clickButton("//a[@ng-click='SalvarGrupo()']");
+        save("//a[@ng-click='SalvarGrupo()']");
         return this;
     }
 

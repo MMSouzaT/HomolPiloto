@@ -13,7 +13,7 @@ public class A02HomolmeumedicoDeleteTest {
     @Before
     public void setUp() {
         navegador = Web.createChrome();
-        new PageBase(navegador).makeLogin();
+        new PageBase(navegador).SignIn();
     }
 
     @Test
@@ -59,6 +59,11 @@ public class A02HomolmeumedicoDeleteTest {
     @Test
     public void PrioritiesDelete() throws InterruptedException {
         new Priorities(navegador).deletePrior();
+    }
+
+    @Test
+    public void CategoriesDelete() throws InterruptedException{
+        new Categories(navegador).deleteCategory();
     }
 
     @After

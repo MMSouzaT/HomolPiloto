@@ -13,22 +13,21 @@ public class A01HomolMeuMedicoEditTest {
     @Before
     public void setUp() {
         navegador = Web.createChrome();
-        new PageBase(navegador).makeLogin();
+        new PageBase(navegador).SignIn();
     }
 
     @Test
     public void quizEdit() throws InterruptedException {
         new Quiz(navegador).editQuiz()
                 .firstQuadrant().secondQuadrant().thirdQuadrant()
-                .newQuestion().subjetiveQuestion().saveQuiz()
-                .deleteQuestion().newQuestion().objetiveQuestion().saveQuiz();
+                .subjetiveQuestion()
+                .deleteQuestion().objetiveQuestion();
     }
 
     @Test
     public void admGroupEdit() throws InterruptedException {
         new AdministrativeGroups(navegador).editGroup()
                 .writeEverything().successMessageEdit();
-
     }
 
     @Test
@@ -67,6 +66,11 @@ public class A01HomolMeuMedicoEditTest {
     @Test
     public void PrioritiesEdit() throws InterruptedException {
         new Priorities(navegador).editPrior().writeEverything();
+    }
+
+    @Test
+    public void CategoriesEdit() throws InterruptedException{
+        new Categories(navegador).editCategory().writeEverything();
     }
 
     @After
