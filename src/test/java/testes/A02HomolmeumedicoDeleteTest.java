@@ -57,14 +57,19 @@ public class A02HomolmeumedicoDeleteTest {
     }
 
     @Test
+    public void deleteNotification() throws InterruptedException{
+        new Notifications(navegador).deleteNotification();
+    }
+
+    @Test
     public void PrioritiesDelete() throws InterruptedException {
         new Priorities(navegador).deletePrior();
     }
 
-    @Test
-    public void CategoriesDelete() throws InterruptedException{
-        new Categories(navegador).deleteCategory();
-    }
+//    @Test
+//    public void CategoriesDelete() throws InterruptedException{
+//        new FAQCategories(navegador).deleteCategory();
+//    }
 
     @After
     public void tearDown() throws InterruptedException {

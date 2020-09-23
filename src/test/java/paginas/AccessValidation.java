@@ -1,6 +1,9 @@
 package paginas;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class AccessValidation extends PageBase {
     public AccessValidation(WebDriver navegador) {
@@ -44,5 +47,7 @@ public class AccessValidation extends PageBase {
         selects("//select[@ng-model='form.perfil.id']", "MEDICO");
         return this;
     }
+
+
 
 }

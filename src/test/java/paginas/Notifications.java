@@ -13,6 +13,26 @@ public class Notifications extends PageBase {
         return this;
     }
 
+    public Notifications editNotification() throws InterruptedException {
+        openTypeFilter("//a[@ng-click='notificacoes()']", "//input[@id='title']","//a[@ng-click='filterNotifications(1)']");
+        selects("//select[@id='filtroStatus']","Não Enviado");
+        clickButton("//a[@ng-click='filterNotifications(1)']");
+        waitHalfASecond();
+        clickButton("//a[@ng-click='EditNotification(item)']");
+        return this;
+    }
+
+    public Notifications deleteNotification() throws InterruptedException{
+        openTypeFilter("//a[@ng-click='notificacoes()']", "//input[@id='title']","//a[@ng-click='filterNotifications(1)']");
+        selects("//select[@id='filtroStatus']","Não Enviado");
+        clickButton("//a[@ng-click='filterNotifications(1)']");
+        waitHalfASecond();
+        clickButton("//a[@ng-click='ConfirmDeleteNotification(item)']");
+        clickButton("//a[@ng-click='DeleteNotification()']");
+        toastValidation("Notificação deletada com sucesso.");
+        return this;
+    }
+
     public Notifications addUser() throws InterruptedException {
         waitHalfASecond();
         type("//input[@id='filtroMatricula']","00992773014"); //altere aqui para alterar o número que você quer a notificação
@@ -34,6 +54,12 @@ public class Notifications extends PageBase {
         type("//textarea[@id='description']","Desciption By SWD");
         clickButton("//button[@ng-click='salvarNotificacao()']");
         //toastValidation("Cadastro realizado com sucesso");
+        return this;
+    }
+
+    public Notifications deleteUser(){
+        clickButton("//a[@ng-click='ConfirmDeleteUserNotification(item)']");
+        clickButton("//a[@ng-click='DeleteNotificationUser()']");
         return this;
     }
 }

@@ -13,7 +13,7 @@ public class Web {
         System.setProperty("webdriver.chrome.driver", "C:\\qafullstack\\chromedriver.exe");
         WebDriver navegador = new ChromeDriver(options);
         navegador.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        navegador.get("https://homol.admin.piloto.meumedico.net.br/login");
+        navegador.get("aqui vai o link do ambiente a ser testado");
         return navegador;
     }
 }

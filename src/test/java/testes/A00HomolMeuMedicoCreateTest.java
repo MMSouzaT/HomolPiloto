@@ -77,7 +77,7 @@ public class A00HomolMeuMedicoCreateTest {
     @Test //sem loop
     public void notificationCreate() throws InterruptedException {
               new Notifications(navegador)
-                    .newNotification().writeEverything("chat aberto 6min", "11092020", "1043'").addUser();
+                    .newNotification().writeEverything("01 - SWD", "31122020", "2359'").addUser();
     }
 
     @Test
@@ -85,10 +85,10 @@ public class A00HomolMeuMedicoCreateTest {
         new Priorities(navegador).newPriority().writeEverything();
     }
 
-    @Test
-    public void CategoriesCreate() throws InterruptedException{
-        new Categories(navegador).newCategory().writeEverything();
-    }
+//    @Test
+//    public void CategoriesCreate() throws InterruptedException{
+//        new FAQCategories(navegador).newCategory().writeEverything();
+//    }
 
     @After
     public void tearDown() throws InterruptedException {

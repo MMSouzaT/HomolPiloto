@@ -62,16 +62,22 @@ public class A01HomolMeuMedicoEditTest {
         new HealthUnits(navegador).editHealthUnit().writeEverything();
     }
 
+    @Test
+    public void notificationEdit() throws InterruptedException{
+        new Notifications(navegador).editNotification()
+                .writeEverything("01 - SWD", "31122020", "2359")
+                .deleteUser().addUser();
+    }
 
     @Test
     public void PrioritiesEdit() throws InterruptedException {
         new Priorities(navegador).editPrior().writeEverything();
     }
 
-    @Test
-    public void CategoriesEdit() throws InterruptedException{
-        new Categories(navegador).editCategory().writeEverything();
-    }
+//    @Test
+//    public void CategoriesEdit() throws InterruptedException{
+//        new FAQCategories(navegador).editCategory().writeEverything();
+//    }
 
     @After
     public void tearDown() throws InterruptedException {

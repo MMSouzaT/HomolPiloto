@@ -1,3 +1,5 @@
+paginas\FAQ.class
+paginas\FAQCategories.class
 paginas\CareTypes.class
 paginas\Quiz.class
 paginas\UnavailabilityTypes.class
@@ -12,4 +14,5 @@ paginas\Priorities.class
 paginas\AccessValidation.class
 paginas\ResultTypes.class
 suporte\Web.class
+paginas\WaitingRoom.class
 testes\A00HomolMeuMedicoCreateTest.class

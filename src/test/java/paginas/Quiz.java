@@ -61,14 +61,19 @@ public class Quiz extends PageBase {
         type("//input[@ng-model='form.title']", swd + " Ob");
         clickButton("//input[@id='firstQuestion']");
         selects("//select[@ng-model='form.type']", "Resposta objetiva");
-        clickButton("//a[@ng-click='novaResposta(form.type)']");
-        type("//input[@id='answerTitle']", "01 - Answer");
-        type("//input[@id='weight']", "1");
-        type("//input[@id='order']", "1");
-        clickButton("//a[@ng-click='registerAnswer()']");
+        newAnswer("01 - Answer", "1", "1");
+        newAnswer("02 - Answer", "2", "2");
         save("//a[@ng-click='criarPerguntaResposta()']");//salvar pergunta
         save("//button[@ng-click='editarQuestionario()']");//salvar questionário
         return this;
+    }
+
+    public void newAnswer(String answerTitle, String weight, String order){
+        clickButton("//a[@ng-click='novaResposta(form.type)']");
+        type("//input[@id='answerTitle']", answerTitle);
+        type("//input[@id='weight']", weight);
+        type("//input[@id='order']", order);
+        clickButton("//a[@ng-click='registerAnswer()']");
     }
 
     public Quiz newQuiz() throws InterruptedException {
@@ -99,4 +104,5 @@ public class Quiz extends PageBase {
         toastValidation("Questionário excluído com sucesso");
         return this;
     }
+
 }
