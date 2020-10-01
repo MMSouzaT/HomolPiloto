@@ -32,7 +32,7 @@ public class A01HomolMeuMedicoEditTest {
 
     @Test
     public void accessValidationEdit() throws InterruptedException {
-        new AccessValidation(navegador).editValidation().writeEverything()
+        new AccessValidationn(navegador).editValidation().writeEverything()
                 .saveValidation();
 
     }

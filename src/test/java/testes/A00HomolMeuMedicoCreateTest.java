@@ -32,12 +32,9 @@ public class A00HomolMeuMedicoCreateTest {
                 .writeEverything().successMessage();
     }
 
-
     @Test
-    public void accessValidationCreate() throws InterruptedException {
-        new AccessValidation(navegador).newValidation().writeEverything().typeIdentifier()
-                .saveValidation();
-
+    public void accessValidationCreate() throws InterruptedException{
+        new AccessValidationn(navegador).newValidation().writeEverything().typeIdentifier().saveValidation();
     }
 
     @Test
@@ -77,7 +74,7 @@ public class A00HomolMeuMedicoCreateTest {
     @Test //sem loop
     public void notificationCreate() throws InterruptedException {
               new Notifications(navegador)
-                    .newNotification().writeEverything("01 - SWD", "31122020", "2359'").addUser();
+                    .newNotification().writeEverything("2", "30092020", "1656").addUser();
     }
 
     @Test

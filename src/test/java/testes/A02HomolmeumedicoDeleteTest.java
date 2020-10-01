@@ -28,7 +28,7 @@ public class A02HomolmeumedicoDeleteTest {
 
     @Test
     public void accessValidationDelete() throws InterruptedException {
-        new AccessValidation(navegador).deleteValidation();
+        new AccessValidationn(navegador).deleteValidation();
     }
 
     @Test
